@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: devopsflow-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: devopsflow
+
+  template:
+
+    metadata:
+      labels:
+        app: devopsflow
+
+    spec:
+
+      containers:
+      - name: devopsflow-container
+        image: devopsflow
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 5000
